@@ -13,9 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     @IBOutlet weak var myTableView: UITableView!
-    var animals = ["cat", "Bird" , "Horse", "Pig", "Whale"]
-    var year = ["3", "5", "10", "2", "6"]
-    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,26 +26,27 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return animals.count
+        return 5
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = myTableView.dequeueReusableCell(withIdentifier: "RE", for: indexPath)
         let row = indexPath.row
+        let sec = indexPath.section
         
-        cell.textLabel?.text = animals[row]
+        cell.textLabel?.text = "section : \(sec)"
         
-        cell.detailTextLabel?.text = year[row]
+        cell.detailTextLabel?.text = "Row : \(row)"
         
-        cell.imageView?.image = UIImage(named: animals[row])
+        
         
         return cell
     }
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
 
         if section == 0 {
-            return "Animal Farm"
+            return "Section Header1"
         } else{
-            return "Animal Farm2"
+            return "Section Header2"
         }
         
     }
@@ -59,9 +58,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?{
         if section == 0 {
-            return "End of Animal Farm1"
+            return "Section Footer 1"
         } else{
-            return "End of Animal Farm2"
+            return "Section Footer 2"
         }
     }
     
