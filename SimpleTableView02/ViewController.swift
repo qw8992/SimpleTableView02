@@ -13,8 +13,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     @IBOutlet weak var myTableView: UITableView!
-    var animals = ["Cat", "Dog" , "Cow", "Pig", "Horse", "Whale"]
-    var year = ["3", "5", "10", "2", "6", "3"]
+    var animals = ["cat", "Bird" , "Horse", "Pig", "Whale"]
+    var year = ["3", "5", "10", "2", "6"]
     
     
     override func viewDidLoad() {
@@ -38,7 +38,31 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         cell.detailTextLabel?.text = year[row]
         
+        cell.imageView?.image = UIImage(named: animals[row])
+        
         return cell
+    }
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
+
+        if section == 0 {
+            return "Animal Farm"
+        } else{
+            return "Animal Farm2"
+        }
+        
+    }
+    
+    
+    public func numberOfSections(in tableView: UITableView) -> Int{
+        return 2;
+        
+    }
+    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?{
+        if section == 0 {
+            return "End of Animal Farm1"
+        } else{
+            return "End of Animal Farm2"
+        }
     }
     
 
